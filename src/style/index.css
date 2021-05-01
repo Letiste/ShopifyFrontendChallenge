@@ -1,0 +1,18 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+body {
+  background-color: rgb(240, 240, 240);
+}
+#preact_root {
+  max-width: 70rem;
+  margin: auto;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
