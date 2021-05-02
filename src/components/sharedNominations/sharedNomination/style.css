@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-bottom: 2rem;
+}
+
+.poster {
+  width: 100px;
+  height: 150px;
+}
+
+.infos {
+  max-width: 50rem;
+  margin-left: 1rem;
+}
