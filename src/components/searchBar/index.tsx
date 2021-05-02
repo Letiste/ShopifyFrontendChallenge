@@ -17,7 +17,20 @@ export const SearchBar: FunctionalComponent<{
   }
 
   const debouncedGetMovies = useCallback(
-    debounce((search: string) => getMovies(search).then(setMovies), 300),
+    debounce(
+      (search: string) =>
+        getMovies(search).then((movies) => {
+          const newMovies = Array<MovieType>();
+          // filter because OMDB returns some movies in double
+          movies.forEach(
+            (movie) =>
+              !newMovies.some((newMovie) => newMovie.imdbID === movie.imdbID) &&
+              newMovies.push(movie)
+          );
+          setMovies(newMovies);
+        }),
+      300
+    ),
     []
   );
   useEffect(() => {
