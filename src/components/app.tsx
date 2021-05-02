@@ -1,5 +1,5 @@
 import { FunctionalComponent, h } from 'preact';
-import { useState } from 'preact/hooks';
+import { useEffect, useState } from 'preact/hooks';
 
 import { Header } from './header';
 import { SearchBar } from './searchBar';
@@ -13,9 +13,24 @@ const App: FunctionalComponent = () => {
   const [movies, setMovies] = useState(Array<MovieType>());
   const [nominates, setNominates] = useState(Array<MovieType>());
 
+  useEffect(() => {
+    const newNominates = [];
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (!key) {
+        continue;
+      }
+      if (key.startsWith('movie:')) {
+        newNominates.push(JSON.parse(localStorage.getItem(key)!));
+      }
+    }
+    setNominates(newNominates);
+  }, []);
+
   function nominateMovie(movie: MovieType): void {
     const newNominates = [...nominates, movie];
     setNominates(newNominates);
+    localStorage.setItem(`movie:${movie.imdbID}`, JSON.stringify(movie));
   }
 
   function removeNominatedMovie(movie: MovieType): void {
@@ -23,6 +38,7 @@ const App: FunctionalComponent = () => {
       (nominate) => nominate.imdbID !== movie.imdbID
     );
     setNominates(newNominates);
+    localStorage.removeItem(`movie:${movie.imdbID}`);
   }
 
   return (
