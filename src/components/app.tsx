@@ -6,6 +6,7 @@ import { SearchBar } from './searchBar';
 import { Results } from './results';
 import { Nominations } from './nominations';
 import { MovieType } from '../services/movies';
+import { Banner } from './banner';
 
 const App: FunctionalComponent = () => {
   const [search, setSearch] = useState('');
@@ -28,6 +29,7 @@ const App: FunctionalComponent = () => {
     <div id="preact_root">
       <Header />
       <SearchBar setMovies={setMovies} search={search} setSearch={setSearch} />
+      {nominates.length === 5 && <Banner />}
       <div class="row">
         <Results
           movies={movies}
