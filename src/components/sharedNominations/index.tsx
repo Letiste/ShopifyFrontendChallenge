@@ -7,12 +7,14 @@ import style from './style.css';
 const SharedNominations: FunctionalComponent = () => {
   const [nominates, setNominates] = useState(Array<MovieInfoType>());
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const moviesPromises = Array<Promise<MovieInfoType>>();
-    params.forEach((params) => {
-      moviesPromises.push(getMovieById(params));
-    });
-    Promise.all(moviesPromises).then(setNominates);
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(location.search);
+      const moviesPromises = Array<Promise<MovieInfoType>>();
+      params.forEach((params) => {
+        moviesPromises.push(getMovieById(params));
+      });
+      Promise.all(moviesPromises).then(setNominates);
+    }
   }, []);
 
   return (

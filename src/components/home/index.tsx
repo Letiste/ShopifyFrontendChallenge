@@ -9,13 +9,15 @@ import style from './style.css';
 
 function initialNominates(): MovieType[] {
   const newNominates = [];
-  for (let i = 0; i < window.localStorage.length; i++) {
-    const key = window.localStorage.key(i);
-    if (!key) {
-      continue;
-    }
-    if (key.startsWith('movie:')) {
-      newNominates.push(JSON.parse(window.localStorage.getItem(key)!));
+  if (typeof window !== 'undefined') {
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (!key) {
+        continue;
+      }
+      if (key.startsWith('movie:')) {
+        newNominates.push(JSON.parse(localStorage.getItem(key)!));
+      }
     }
   }
   return newNominates;

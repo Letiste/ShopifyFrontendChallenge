@@ -20,7 +20,10 @@ export const Banner: FunctionalComponent<{ nominates: MovieType[] }> = ({
       <p>
         You can share your list with this link:
         <br />
-        <a href={link}> {window.location.href + link}</a>
+        <a href={link}>
+          {' '}
+          {typeof window !== 'undefined' ? location.href + link : 'link'}
+        </a>
       </p>
     </div>
   );
