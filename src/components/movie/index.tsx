@@ -5,10 +5,19 @@ import { MovieType } from '../../services/movies';
 export const Movie: FunctionalComponent<{
   movie: MovieType;
   buttonName: string;
-}> = ({ movie, buttonName }) => {
+  handleClick: (movie: MovieType) => void;
+  isDisabled?: boolean;
+}> = ({ movie, buttonName, handleClick, isDisabled }) => {
+  function onClick(): void {
+    handleClick(movie);
+  }
+
   return (
     <li>
-      {movie.Title} ({movie.Year})<button>{buttonName}</button>
+      {movie.Title} ({movie.Year})
+      <button disabled={isDisabled} onClick={onClick}>
+        {buttonName}
+      </button>
     </li>
   );
 };
