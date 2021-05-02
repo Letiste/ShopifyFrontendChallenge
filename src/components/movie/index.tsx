@@ -1,16 +1,14 @@
 import { FunctionalComponent, h } from 'preact';
 import style from './style.css';
+import { MovieType } from '../../services/movies';
 
-type MovieType = {
-  title: string;
-  date: number;
+export const Movie: FunctionalComponent<{
+  movie: MovieType;
   buttonName: string;
-};
-
-export const Movie: FunctionalComponent<MovieType> = (movie: MovieType) => {
+}> = ({ movie, buttonName }) => {
   return (
     <li>
-      {movie.title} ({movie.date})<button>{movie.buttonName}</button>
+      {movie.Title} ({movie.Year})<button>{buttonName}</button>
     </li>
   );
 };
