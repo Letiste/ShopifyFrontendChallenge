@@ -1,10 +1,9 @@
-name: Lint & test
+name: Lint & test & deploy
 
 on:
   push:
-    branches:
+    branches: [main]
   pull_request:
-    branches:
 
 jobs:
   test:
@@ -39,3 +38,10 @@ jobs:
 
       - name: Run tests
         run: npm run test
+
+      - name: Deploy to Github Pages
+        uses: JamesIves/github-pages-deploy-action@4.1.1
+        if: github.ref == 'refs/heads/main'
+        with:
+          branch: gh-pages
+          folder: build
