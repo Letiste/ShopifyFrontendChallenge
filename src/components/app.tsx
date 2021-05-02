@@ -30,7 +30,7 @@ const App: FunctionalComponent = () => {
   function nominateMovie(movie: MovieType): void {
     const newNominates = [...nominates, movie];
     setNominates(newNominates);
-    localStorage.setItem('movie:' + movie.imdbID, JSON.stringify(movie));
+    localStorage.setItem(`movie:${movie.imdbID}`, JSON.stringify(movie));
   }
 
   function removeNominatedMovie(movie: MovieType): void {
@@ -38,7 +38,7 @@ const App: FunctionalComponent = () => {
       (nominate) => nominate.imdbID !== movie.imdbID
     );
     setNominates(newNominates);
-    localStorage.removeItem('movie:' + movie.imdbID);
+    localStorage.removeItem(`movie:${movie.imdbID}`);
   }
 
   return (
