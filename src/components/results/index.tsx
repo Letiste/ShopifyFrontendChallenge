@@ -9,7 +9,6 @@ export const Results: FunctionalComponent<{
   search: string;
   nominateMovie: (movie: MovieType) => void;
 }> = ({ movies, search, nominateMovie, nominates }) => {
-  console.log('rebuilt');
   return (
     <div class={style.container}>
       <h2>Results for "{search}"</h2>
