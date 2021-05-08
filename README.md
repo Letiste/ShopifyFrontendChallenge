@@ -2,7 +2,7 @@
 
 This is the website for the [UX Developer Intern & Web Developer Intern Challenge - Fall 2021](https://docs.google.com/document/d/1SdR9rQpocsH5rPTOcxr9noqHRld5NJlylKO9Hf94U8U/edit#heading=h.31w9woubunro).
 
-You can see it running here: https://letiste.github.io/ShopifyFrontendChallenge/
+You can see it running [here](https://epic-swartz-ab6321.netlify.app/).
 
 This website was made using [Preact](https://preactjs.com/).
 
