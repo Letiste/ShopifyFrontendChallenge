@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseURL = 'http://www.omdbapi.com/?apikey=e8e3325a&type=movie';
+const baseURL = 'https://www.omdbapi.com/?apikey=e8e3325a&type=movie';
 
 export interface MovieType {
   Poster: string;
