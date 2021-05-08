@@ -1,0 +1,35 @@
+.movie {
+  list-style: none;
+  margin-bottom: 1rem;
+}
+
+.btn {
+  border-radius: 6px;
+  background-color: white;
+  padding: 0.4rem;
+  margin-right: 1rem;
+  position: relative;
+  cursor: pointer;
+  transition: all 150ms;
+}
+
+.btn:enabled:hover {
+  background-color: teal;
+  color: white;
+}
+
+.btn:disabled {
+  color: grey;
+  border-color: grey;
+  cursor: default;
+}
+
+.Remove {
+  border: 2px solid hsl(0, 84%, 36%);
+  color: hsl(0, 84%, 36%);
+}
+
+.Nominate {
+  border: 2px solid teal;
+  color: teal;
+}

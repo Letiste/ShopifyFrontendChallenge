@@ -10,16 +10,24 @@ export interface MovieType {
   imdbID: string;
 }
 
+interface MovieSearchResult {
+  response: 'True' | 'False';
+  result: MovieType[];
+  error: string;
+}
+
 export interface MovieInfoType extends MovieType {
   Plot: string;
   Genre: string;
   Runtime: string;
 }
 
-export function getMovies(search: string): Promise<MovieType[]> {
-  return axios
-    .get(`${baseURL}&s=${search}`)
-    .then((res) => res.data.Search || []);
+export function getMovies(search: string): Promise<MovieSearchResult> {
+  return axios.get(`${baseURL}&s=${search}`).then((res) => ({
+    response: res.data.Response,
+    result: res.data.Search,
+    error: res.data.Error,
+  }));
 }
 
 export function getMovieById(id: string): Promise<MovieInfoType> {
