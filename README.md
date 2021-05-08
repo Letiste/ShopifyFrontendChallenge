@@ -1,19 +1,17 @@
 # frontend-challenge
 
-## CLI Commands
-*   `npm install`: Installs dependencies
+This is the website for the [UX Developer Intern & Web Developer Intern Challenge - Fall 2021](https://docs.google.com/document/d/1SdR9rQpocsH5rPTOcxr9noqHRld5NJlylKO9Hf94U8U/edit#heading=h.31w9woubunro).
 
-*   `npm run dev`: Run a development, HMR server
+You can see it running here: https://letiste.github.io/ShopifyFrontendChallenge/
 
-*   `npm run serve`: Run a production-like server
+This website was made using [Preact](https://preactjs.com/).
 
-*   `npm run build`: Production-ready build
+You can search movies by title, nominate your 5 favorites movies and share it with a link. LocalStorage was used to save your list when you close the site.
 
-*   `npm run lint`: Pass TypeScript files using ESLint
+If you wish to run it locally, you need to
 
-*   `npm run test`: Run Jest and Enzyme with
-    [`enzyme-adapter-preact-pure`](https://github.com/preactjs/enzyme-adapter-preact-pure) for
-    your tests
+- Clone the repository
+- Install the dependencies: `npm install`
+- Run the development server: `npm run dev`
 
-
-For detailed explanation on how things work, checkout the [CLI Readme](https://github.com/developit/preact-cli/blob/master/README.md).
+You can build the site with `npm run build` or serve a production-like server with `npm run serve`.
