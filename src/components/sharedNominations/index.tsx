@@ -19,7 +19,9 @@ const SharedNominations: FunctionalComponent = () => {
 
   return (
     <div class={style.container}>
-      <a href="/">Nominate my 5 films</a>
+      <a class={style.link_back} href="/">
+        Nominate my 5 films
+      </a>
       {nominates.length > 0 ? (
         <ul>
           {nominates.map((nominate) => (

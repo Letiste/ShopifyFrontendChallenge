@@ -25,6 +25,7 @@ function initialNominates(): MovieType[] {
 const Home: FunctionalComponent = () => {
   const [search, setSearch] = useState('');
   const [movies, setMovies] = useState(Array<MovieType>());
+  const [error, setError] = useState<string | null>(null);
   const [nominates, setNominates] = useState(initialNominates);
 
   function nominateMovie(movie: MovieType): void {
@@ -42,18 +43,24 @@ const Home: FunctionalComponent = () => {
   }
   return (
     <Fragment>
-      <SearchBar setMovies={setMovies} search={search} setSearch={setSearch} />
+      <SearchBar
+        setMovies={setMovies}
+        search={search}
+        setSearch={setSearch}
+        setError={setError}
+      />
       {nominates.length === 5 && <Banner nominates={nominates} />}
-      <div class="row">
-        <Results
-          movies={movies}
-          nominates={nominates}
-          search={search}
-          nominateMovie={nominateMovie}
-        />
+      <div class={style.row}>
         <Nominations
           nominates={nominates}
           removeNominatedMovie={removeNominatedMovie}
+        />
+        <Results
+          movies={movies}
+          error={error}
+          nominates={nominates}
+          search={search}
+          nominateMovie={nominateMovie}
         />
       </div>
     </Fragment>
