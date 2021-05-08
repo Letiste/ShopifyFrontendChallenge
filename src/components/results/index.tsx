@@ -9,16 +9,29 @@ export const Results: FunctionalComponent<{
   nominates: MovieType[];
   search: string;
   nominateMovie: (movie: MovieType) => void;
-}> = ({ movies, search, nominateMovie, nominates }) => {
+  error: string | null;
+}> = ({ movies, search, nominateMovie, nominates, error }) => {
   return (
     <div class={style.container}>
       <h2>Results for "{search}"</h2>
-      {nominates.length === 5 && <p>You have validated your 5 movies </p>}
-      {nominates.length === 4 && <p>You must still nominate 1 movie </p>}
-      {nominates.length < 4 && (
-        <p>You must still nominate {5 - nominates.length} movies </p>
+      {nominates.length === 5 && (
+        <p class={style.validation}>
+          You have validated your <strong>5</strong> movies{' '}
+        </p>
       )}
-      {movies.length > 0 && (
+      {nominates.length === 4 && (
+        <p class={style.validation}>
+          You must still nominate <strong>1</strong> movie{' '}
+        </p>
+      )}
+      {nominates.length < 4 && (
+        <p class={style.validation}>
+          You must still nominate <strong>{5 - nominates.length}</strong> movies{' '}
+        </p>
+      )}
+      {error ? (
+        <p class={style.error}>{error}</p>
+      ) : (
         <ul>
           {movies.map((movie) => {
             const isDisabled =

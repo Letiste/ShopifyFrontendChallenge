@@ -16,7 +16,7 @@ export const Banner: FunctionalComponent<{ nominates: MovieType[] }> = ({
 
   return (
     <div class={style.container}>
-      <p>You nominated your 5 movies !</p>
+      <p class={style.strong}>You nominated your 5 movies !</p>
       <p>
         You can share your list with this link:
         <br />

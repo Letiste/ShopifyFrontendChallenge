@@ -4,7 +4,7 @@ import { MovieType } from '../../services/movies';
 
 export const Movie: FunctionalComponent<{
   movie: MovieType;
-  buttonName: string;
+  buttonName: 'Nominate' | 'Remove';
   handleClick: (movie: MovieType) => void;
   isDisabled?: boolean;
 }> = ({ movie, buttonName, handleClick, isDisabled }) => {
@@ -13,11 +13,15 @@ export const Movie: FunctionalComponent<{
   }
 
   return (
-    <li>
-      {movie.Title} ({movie.Year})
-      <button disabled={isDisabled} onClick={onClick}>
+    <li class={style.movie}>
+      <button
+        class={`${style.btn} ${style[buttonName]}`}
+        disabled={isDisabled}
+        onClick={onClick}
+      >
         {buttonName}
       </button>
+      {movie.Title} ({movie.Year})
     </li>
   );
 };

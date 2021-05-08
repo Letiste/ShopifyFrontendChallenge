@@ -1,0 +1,13 @@
+.row {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  justify-items: stretch;
+  /* flex-wrap: wrap; */
+  gap: 1rem;
+}
+@media (max-width: 680px) {
+  .row {
+    flex-direction: column;
+  }
+}

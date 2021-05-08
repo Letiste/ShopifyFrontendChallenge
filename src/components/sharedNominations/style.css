@@ -1,0 +1,13 @@
+.container {
+  margin-top: 2rem;
+}
+
+.link_back {
+  display: inline-block;
+  border: 2px solid teal;
+  border-radius: 6px;
+  padding: 0.8rem;
+  margin-bottom: 2rem;
+  color: teal;
+  text-decoration: none;
+}
